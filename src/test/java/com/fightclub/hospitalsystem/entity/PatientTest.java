@@ -20,8 +20,29 @@ public class PatientTest {
     }
 
     @Test
-    public void testFindById() {
+    void testFindById() {
         Patient patientList = repository.findById(1L).orElse(null);
+        System.out.println(patientList);
+    }
+
+    @Test
+    public void testFindByEmail() {
+        Patient patient
+                 = repository.findByEmail("simran.kaur@example.com");
+        System.out.println(patient);
+    }
+
+    @Test
+    public void testFindByName(){
+        Patient patient
+                = repository.findByName("Simran Kaur");
+        System.out.println(patient);
+    }
+
+    @Test
+    public void testFindByBloodGroup(){
+        List<Patient> patientList
+                = repository.findByBloodGroup();
         System.out.println(patientList);
     }
 }
